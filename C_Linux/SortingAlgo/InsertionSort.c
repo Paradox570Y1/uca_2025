@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 // Function defination
-void BubbleSort(int*, int);
+void InsertionSort(int*, int);
 void exch(int*, int, int);
 
 /**
@@ -31,7 +31,7 @@ int main() {
   int64_t before_sort_in_ms = before.tv_sec * 1000LL + before.tv_usec / 1000LL;
   int64_t before_sort_in_us = before.tv_sec * 1000000LL + before.tv_usec;
 
-  BubbleSort(arr, arr_size);
+  InsertionSort(arr, arr_size);
 
   struct timeval after;
   gettimeofday(&after, NULL);
@@ -52,12 +52,12 @@ int main() {
  * @param arr - array of random elements
  * @param n - size of array
 */ 
-void BubbleSort(int* arr, int n) {
-  for (int i = n-1; i >= 0; i--) {
-    for (int j = 0; j < i; j++) {
-      if (arr[j] > arr[j+1]) {
-        exch(arr, j, j+1);
-      }
+void InsertionSort(int* arr, int n) {
+  for (int i = 1; i < n; i++) {
+    int j = i;
+    while (j > 0 && arr[j] < arr[j-1]) {
+      exch(arr, j, j-1);
+      j--;
     }
   }
 }
@@ -71,3 +71,4 @@ void exch(int *arr, int i, int j) {
   arr[i] = arr[j];
   arr[j] = temp;
 }
+
