@@ -45,7 +45,7 @@ int main() {
   printf("\n");
   int64_t time_span_in_ms = after_sort_in_ms - before_sort_in_ms;
   int64_t time_span_in_us = after_sort_in_us - before_sort_in_us;
-  printf("Time Taken in %ld ms or %ld us\n", time_span_in_ms, time_span_in_us);
+  printf("Time Taken is %ld ms or %ld us\n", time_span_in_ms, time_span_in_us);
 }
 
 /**
